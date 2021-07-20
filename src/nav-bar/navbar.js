@@ -1,12 +1,15 @@
 import {React, useEffect,useState} from 'react'
 import { Link } from 'react-router-dom'
 import {useSpring, animated} from 'react-spring'
+import bgImgWhite from '../image/sevinwhite.png'
+import bgImgBlack  from '../image/sevinblack.png'
 
 const Navbar = () =>{
   const [style, setStyle] = useState({color: 'white'});
   const [navstyle, setNavstyle] = useState(false);
   const [border, setBorder] = useState({borderLeft: "1px solid white", })
   const [open, setOpen] = useState(false)
+  const [bgimage, setBgimage] = useState(bgImgBlack)
 
   const handlerBurger = function(){
     if(!open){
@@ -37,10 +40,13 @@ const Navbar = () =>{
     const handlerChange = () =>{
       if(window.scrollY > 30){
         setNavstyle(true)
+        
+        setBgimage(bgImgWhite)
       }else if(window.scrollY < 10){
         setStyle({color: 'white'})
         setNavstyle(false)
         setBorder({ borderLeft: "1px solid white" })
+        setBgimage(bgImgBlack)
       }
     }
     document.addEventListener('scroll', handlerChange)
@@ -64,7 +70,7 @@ const Navbar = () =>{
     <article className='sticky'>
       <animated.div style={navAnimation}  className="nav-container">
         <div className="logo">
-          <p style={style} >Sevin</p>
+          <img src={bgimage} alt="png" />
         </div>
         <div className="nav-box">
           <ul>

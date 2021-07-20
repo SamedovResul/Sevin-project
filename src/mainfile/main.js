@@ -1,9 +1,9 @@
 import {React, useState,useEffect} from 'react'
 import {useSpring, animated} from 'react-spring'
 import Invition from '../data'
-import InvitationPAges from '../invitionfile/invition-pages'
-import InvitationPage from '../invitionfile/invition-page'
-import Footer from '../footerfile/footer'
+import InvitationPAges from '../invitionfile/Invition-pages'
+import InvitationPage from '../invitionfile/Invition-page'
+import Footer from '../footerfile/Footer'
 import S from '../image/sevinwhiteS.png'
 import disableScroll from 'disable-scroll';
 
@@ -61,7 +61,7 @@ const Main = () =>{
             onClick={() => setId(subject.id)} 
             className="col-md-3 col-sm-4   invition-box"
             >
-              <div className="">
+              <div className="child-box">
                 <InvitationPAges  data={subject} handlerChange={handlerChange} />
               </div>
             </div>
