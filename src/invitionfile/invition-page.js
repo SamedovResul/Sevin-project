@@ -1,16 +1,16 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 const  Invitation = (props) =>{
 
-  const {image, name,description, url,price } = props.data
+  const {image, name,description, price } = props.data
   return( 
     <>
      <div  className="invition-container-box">
         <div   className="img-box"  >
           <img src={image} alt="img" />
-          <button className='btn'
-            onClick={() => window.open(url)}
-          > Nümunə </button>
+          <Link to='invitation'>
+            <button className='btn' > Nümunə </button>
+          </Link>
         </div>
         <div className="text-box">  
           <h2>{name}</h2>

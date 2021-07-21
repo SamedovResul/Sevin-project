@@ -49,9 +49,9 @@ const Main = () =>{
       setBox('open')
       setBody({background: 'rgba(0, 0, 0, 0.568)'})
       setImageOpacity({opacity: '0.2'})
-      if(window.innerWidth >= 400){
-        disableScroll.on()
-      }
+      // if(window.innerWidth >= 400){
+      //   disableScroll.on()
+      // }
       
     }
     

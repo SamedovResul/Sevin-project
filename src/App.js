@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Main from './mainfile/Main';
 import Navbar from './nav-bar/Navbar'
 import About from './about/About';
-// import Invitation from './invitionfile/invitation';
+import Invitation from './invitionfile/Invitation';
 const App = (props) =>{
   
   console.log()
@@ -16,6 +16,9 @@ const App = (props) =>{
         </Route>
         <Route path='/about'>
           <About />
+        </Route>
+        <Route path='/invitation'>
+          <Invitation />
         </Route>
       </Switch>
       
