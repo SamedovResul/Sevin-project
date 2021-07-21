@@ -1,4 +1,4 @@
-import {React, useState,useEffect} from 'react'
+import {React, useState,useEffect,useCallback,} from 'react'
 import {useSpring, animated} from 'react-spring'
 import Invition from '../data'
 import InvitationPAges from '../invitionfile/Invition-pages'
@@ -13,6 +13,9 @@ const Main = () =>{
   const [body, setBody] = useState({background: 'rgba(197, 193, 193, 0.)'})
   const [imgOpacity, setImageOpacity] = useState({opacity: ''})
   const selected = Invition.find(element => element.id ===  id)
+  const [scrolling, setScrolling] = useState(0)
+  const [transform, setTransform] = useState({top: '0px'})
+  const [y, setY] = useState(window.scrollY);
   
   console.log(id)
   const handlerChange = function(e){
@@ -26,13 +29,30 @@ const Main = () =>{
 		}
 	}
 
+
+   const handleNavigation = useCallback(
+  e => {
+    const window = e.currentTarget;
+    if (y > window.scrollY) {
+      setScrolling(y - 1)
+      setTransform({top: -y + 'px' })
+    } else if (y < window.scrollY) {
+      setScrolling(y - 1)
+      setTransform({top: -y + 'px' })
+    }
+    setY(window.scrollY);
+  }, [y ]
+);
   
   useEffect(() => {
     if(id){
       setBox('open')
       setBody({background: 'rgba(0, 0, 0, 0.568)'})
       setImageOpacity({opacity: '0.2'})
-      disableScroll.on()
+      if(window.innerWidth >= 400){
+        disableScroll.on()
+      }
+      
     }
     
   }, [id])

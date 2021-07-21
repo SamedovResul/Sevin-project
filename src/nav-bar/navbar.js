@@ -11,6 +11,8 @@ const Navbar = () =>{
   const [open, setOpen] = useState(false)
   const [bgimage, setBgimage] = useState(bgImgBlack)
 
+  
+
   const handlerBurger = function(){
     if(!open){
       setOpen(true)

@@ -325,28 +325,9 @@ html {
   text-align: center;
 }
 
-.text-box>div {
-  height: 50px;
-  
-}
 
-.text-box>div form {
-  display: flex;
-}
 
-label {
-  margin: 2px auto 2px auto;
-}
 
-label input {
-  margin: 5px;
-}
-
-select {
-  margin: auto auto 0px 0px;
-  border: none;
-  background-color: transparent;
-}
 
 
 .text-box button {
@@ -465,7 +446,27 @@ select {
 
 /* invition-container  */
 
+.invition-container .text-box>div {
+  height: 40px;
+}
 
+.invition-container .text-box>div form {
+  display: flex;
+}
+
+label {
+  margin: 2px auto 2px auto;
+}
+
+label input {
+  margin: 5px;
+}
+
+select {
+  margin: auto auto 0px 0px;
+  border: none;
+  background-color: transparent;
+}
 
 .invition-container {
   position: fixed;
@@ -605,6 +606,14 @@ select {
 }
 
 @media(max-width:991px) {
+  .invition-container .img-box {
+    width: 55%;
+  }
+
+  .invition-container .text-box h2 {
+    margin: 0px auto 5px 0px;
+  }
+
   .invition-container .text-box p {
     font-size: 22px;
   }
@@ -667,7 +676,17 @@ select {
 }
 
 @media(max-width:400px) {
+  .invition-container .text-box>div {
+    height: 80px;
+  }
 
+  .invition-container .text-box>div form {
+    flex-direction: column;
+  }
+
+  label {
+    margin: 2px auto 2px 0px;
+  }
 
   .img-box img {
     width: 60%;
@@ -689,6 +708,10 @@ select {
 
   .invition-container .text-box {
     text-align: center;
+  }
+
+  label input {
+    margin: 0px 5px 0px 0px;
   }
 }
 
