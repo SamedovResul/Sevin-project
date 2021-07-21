@@ -1,14 +1,15 @@
 import {React} from 'react'
 const Invitations = (props) =>{
+  console.log(props.imgOpacity)
   const {image, name,} = props.data
   return(
       <>
         <div   className="img-box"  >
-          <img src={image} alt="img" />
+          <img style={props.imgOpacity} src={image} alt="img" />
         </div>
         <div className="text-box">
           <p>{name}</p>
-          <button >Ətraflı</button>
+          <button style={props.imgOpacity} >Ətraflı</button>
         </div>
       </>
   )

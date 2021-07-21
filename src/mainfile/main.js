@@ -10,6 +10,8 @@ import disableScroll from 'disable-scroll';
 const Main = () =>{
   const [box, setBox] = useState('close') 
   const [id, setId] = useState('')
+  const [body, setBody] = useState({background: 'rgba(197, 193, 193, 0.)'})
+  const [imgOpacity, setImageOpacity] = useState({opacity: ''})
   const selected = Invition.find(element => element.id ===  id)
   
   console.log(id)
@@ -19,6 +21,8 @@ const Main = () =>{
 		}else{
 			setBox('close')
       disableScroll.off()
+      setBody({background: 'unset'})
+      setImageOpacity({opacity: '1'})
 		}
 	}
 
@@ -26,6 +30,8 @@ const Main = () =>{
   useEffect(() => {
     if(id){
       setBox('open')
+      setBody({background: 'rgba(0, 0, 0, 0.568)'})
+      setImageOpacity({opacity: '0.2'})
       disableScroll.on()
     }
     
@@ -43,15 +49,24 @@ const Main = () =>{
 
 
   return(
-    <article>
-      <div className="header-container test ">
+    <article style={body}>
+      <div className="header-container ">
         <div className='Sevin'>
           <img src={S} alt="" />
         </div>
       </div>
+      <div className="container">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-12 devetname ">
+              <h1>dəvətnamələr</h1>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="container test">
         <div className="constainer-fluid">
-          <div className="row ">
+          <div className="row" >
             
             {Invition.map((subject) =>{
 
@@ -62,7 +77,11 @@ const Main = () =>{
             className="col-md-3 col-sm-4   invition-box"
             >
               <div className="child-box">
-                <InvitationPAges  data={subject} handlerChange={handlerChange} />
+                <InvitationPAges  
+                  data={subject} 
+                  handlerChange={handlerChange}
+                  imgOpacity={imgOpacity}
+                   />
               </div>
             </div>
               )
