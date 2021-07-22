@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import {React, useEffect} from 'react'
 import InvitationImg from '../image/invi2.png';
+import bgInvitation from '../image/invibg1.jpg';
 
 export default function Invitation() {
   const [scrolling, setScrolling] = useState(0)
@@ -20,8 +21,7 @@ const handleNavigation = useCallback(
     setY(window.scrollY);
   }, [y ]
 );
-console.log(scrolling)
-console.log()
+
 useEffect(() => {
   document.getElementsByClassName("sticky")[0].style.display = "none";
   setY(window.scrollY);
@@ -36,6 +36,7 @@ useEffect(() => {
   return (
     <>
       <div   className="invitation-page" >
+        <img src={bgInvitation} className="bg-invitation" alt="img" />
         <img style={transform}  className="invitation" src={InvitationImg} alt="img" />
       </div>
     </>
