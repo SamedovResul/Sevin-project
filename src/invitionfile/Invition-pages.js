@@ -1,6 +1,6 @@
 import {React} from 'react'
 const Invitations = (props) =>{
-  console.log(props.imgOpacity)
+  // console.log(props.imgOpacity)
   const {image, name,} = props.data
   return(
       <>

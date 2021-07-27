@@ -1,22 +1,36 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import {React } from 'react'
+import { Link,useHistory } from 'react-router-dom'
 const  Invitation = (props) =>{
+  const {image, name,description, price } = props.data;
+  let history = useHistory();
+  function handleClick() {
 
-  const {image, name,description, price } = props.data
+    history.push({
+            pathname: '/invitation',
+            state:{
+                tags: name 
+            }
+    });
+  }
+  
+  console.log(name)
   return( 
     <>
      <div  className="invition-container-box">
         <div   className="img-box"  >
           <img src={image} alt="img" />
-          <Link to='invitation'>
-            <button className='btn' > Nümunə </button>
-          </Link>
+          {/* <Link to={{pathname: '/invitation', 
+                      aboutProps:{
+                        name: name
+                      }}} className='text-center'> */}
+            <button className='btn' onClick={handleClick} > Nümunə </button>
+          {/* </Link> */}
         </div>
         <div className="text-box">  
           <h2>{name}</h2>
           <p>{description}</p>
           <div>
-            <form >
+            {/* <form >
               <label htmlFor="ənənəvi">
                 <input type="radio" id="html" name="fav_language" value="Ənənəvi" />
                 Ənənəvi
@@ -33,7 +47,7 @@ const  Invitation = (props) =>{
                   <option value="3">3</option>
                 </select>
               </label>
-            </form>
+            </form> */}
           </div>
           <p>{price} manat</p>
         </div>
