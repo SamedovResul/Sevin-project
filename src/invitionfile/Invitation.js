@@ -18,8 +18,6 @@ export default function Invitation(props) {
     }
   })
   useEffect(() => {
-    
-
     new Rellax(rellaxRef.current, {
       speed: 4,
       center: false,
@@ -38,7 +36,7 @@ useEffect(() => {
   
   return (
     <>
-      <div className="one" >
+      <div className="invitation-page" >
         <img  src={imgbg} alt="img" />
         <div className='front' ref={rellaxRef} >
           <img src={img} alt="img" />

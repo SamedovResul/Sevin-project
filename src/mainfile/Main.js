@@ -1,56 +1,69 @@
-import {React, useState,useEffect} from 'react'
+import {React, useState,useEffect,useRef} from 'react'
 import {useSpring, animated} from 'react-spring'
 import Invition from '../data'
 import InvitationPAges from '../invitionfile/Invition-pages'
 import InvitationPage from '../invitionfile/Invition-page'
 import Footer from '../footerfile/Footer'
 import S from '../image/sevinwhiteS.png'
-import disableScroll from 'disable-scroll';
+import Rellax from "rellax";
+// import disableScroll from 'disable-scroll';
 
 const Main = () =>{
   const [box, setBox] = useState('close') 
   const [id, setId] = useState('')
   const [body, setBody] = useState({background: 'rgba(197, 193, 193, 0.)'})
+  const [top, setTop] = useState({top: ''})
+  const [percentage, setPercentage] = useState(0)
   const [imgOpacity, setImageOpacity] = useState({opacity: ''})
   const [selected, SetSelected] = useState()
 
 
   const handlerChange = function(e){
     
-		if(box === 'close'){
-      
-			setBox('open')
-		}else{
+		if(box !== 'close'){
       setId('')
 			setBox('close')
-      disableScroll.off()
       setBody({background: 'unset'})
       setImageOpacity({opacity: '1'})
 		}
 	}
-  console.log(id)
 
-
+  let scroll = window.pageYOffset
   
+
+
   useEffect(() => {
-    if(id){
+
+    if(id && box === 'close'){
+      setPercentage(scroll / 10 * 2)
+      console.log(percentage)
+      setTop({top: percentage + 'px' })
+      console.log(true)
       SetSelected(Invition.find(element => element.id ===  id))
+      setId(0)
       setBox('open')
       setBody({background: 'rgba(0, 0, 0, 0.568)'})
       setImageOpacity({opacity: '0.2'})
-      if(window.innerWidth >= 400){
-        disableScroll.on()
-      }
-      
     }
-    
-  }, [id])
+  }, [id, box, scroll,percentage])
+
+
+  const rellaxRef = useRef();
+  useEffect(() => {
+    new Rellax(rellaxRef.current, {
+      speed: 4,
+      center: true,
+      wrapper: null,
+      round: true,
+      vertical: true,
+      horizontal: false
+    });
+  }, []);
   
 
-  // console.log(box)
   const animationbox = useSpring({
-			to: [{display: box === 'close' ? 'none' : 'block'}],
-      from: {display:  'none'},
+			to: [{display: box === 'close' ? 'none' : 'block',top: `${percentage}%` }],
+      from: {display:  'none', top:`${percentage}%` },
 			config: {
 				duration: 50
 			}
@@ -99,7 +112,7 @@ const Main = () =>{
           </div>
         </div>
       </div>
-      <animated.div style={animationbox}  className="invition-container">
+      <animated.div ref={rellaxRef} style={animationbox}  className="invition-container">
             { selected ? ( 
               <InvitationPage data={selected}  />
             ) : ( <p>there is error</p> )}
