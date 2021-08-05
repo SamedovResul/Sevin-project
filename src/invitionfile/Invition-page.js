@@ -14,7 +14,7 @@ const  Invitation = (props) =>{
   }
   
   return( 
-    <>
+    <div className="invition-border">
      <div   className="invition-container-box">
         <div   className="img-box"  >
           <img src={image} alt="img" />
@@ -26,7 +26,7 @@ const  Invitation = (props) =>{
           <p>{price} manat</p>
         </div>
       </div>
-    </>
+    </div>
   )
 } 
 

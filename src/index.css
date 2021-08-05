@@ -16,10 +16,10 @@ html {
   src: url('./fontfile/Savoye\ LET\ Plain1.0.woff') format('woff');
 }
 
-@font-face {
-  font-family: 'mySecondFont';
-  src: url("./fontfile/Sinhala\ MN.ttc");
-}
+/* @font-face {
+
+  font-family: 'Segoe UI',
+} */
 
 
 .nav-container {
@@ -45,7 +45,7 @@ html {
 }
 
 .nav-box {
-  width: 300px;
+  width: 400px;
   height: auto;
   display: flex;
   align-items: center;
@@ -66,7 +66,8 @@ html {
   margin: auto 15px auto 15px;
   font-weight: inherit;
   color: white;
-  font-family: 'mySecondFont';
+  font-family: 'Sinhala MN';
+
   font-size: 25px;
 }
 
@@ -256,6 +257,11 @@ html {
   border-bottom: 1px solid black;
 }
 
+.devetname h1 {
+  font-family: 'Sinhala MN';
+  font-weight: 600;
+}
+
 /* invition-box  */
 
 .invition-box {
@@ -310,20 +316,21 @@ html {
 
 
 
-.img-box {
+.invitation-img-box {
   width: 100%;
   height: auto;
   display: flex;
   justify-content: center;
+  margin-top: 15px;
 }
 
-.img-box img {
+.invitation-img-box img {
   width: 80%;
   height: 100%;
 }
 
 
-.text-box {
+.invitation-text-box {
   width: 100%;
   height: auto;
   padding-top: 20px;
@@ -335,15 +342,14 @@ html {
 
 
 
-.text-box button {
+.invitation-text-box button {
   width: 30%;
-  height: 40%;
   background-color: black;
   color: white;
   border: none;
 }
 
-.text-box p {
+.invitation-text-box p {
   font-family: 'mySecondFont';
   font-size: 30px;
   font-weight: 800;
@@ -352,64 +358,87 @@ html {
 }
 
 @media(max-width:1800px) {
-  .invition-box {
-    height: 430px;
+  .invitation-text-box {
+    /* height: 550px; */
   }
 
   .invition-box>div {
-    height: 400px;
+    height: 500px;
   }
 
 }
 
 @media(max-width:1400px) {
   .invition-box {
-    height: 400px;
+    height: 500px;
   }
 
   .invition-box>div {
-    height: 360px;
+    height: 450px;
   }
 }
 
 @media(max-width:1199px) {
-  .invition-box {
-    height: 350px;
-  }
 
   .invition-box>div {
-    height: 320px;
     width: 90%;
   }
 }
 
 @media(max-width:991px) {
-  .text-box button {
+  .invitation-text-box button {
     width: 40%;
   }
 
   .invition-box {
-    height: 280px;
+    height: 450px;
   }
 
   .invition-box>div {
-    height: 260px;
-    width: 90%;
+    height: 380px;
   }
 }
 
 
-@media(max-width:576px) {
+@media(max-width:768px) {
   .invition-box {
-    height: 360px;
+    height: 450px;
   }
 
   .invition-box>div {
-    height: 340px;
+    height: 400px;
   }
 
-  .invition-box .img-box img {
-    width: 35%;
+  .invitation-img-box img {
+    width: 95%;
+  }
+
+  .invitation-text-box button {
+    width: 30%;
+  }
+}
+
+@media(max-width:576px) {
+  .invition-box {
+    height: 500px;
+  }
+
+  .invition-box>div {
+    height: 500px;
+  }
+
+  .invitation-img-box img {
+    width: 75%;
+  }
+
+  .invitation-text-box button {
+    width: 20%;
+  }
+}
+
+@media(max-width:500px) {
+  .invitation-img-box img {
+    width: 80%;
   }
 
   .text-box button {
@@ -417,33 +446,20 @@ html {
   }
 }
 
-@media(max-width:500px) {
-  .invition-box {
-    height: 340px;
+@media(max-width:450px) {
+
+  .invitation-img-box img {
+    width: 95%;
   }
 
-  .invition-box>div {
-    height: 320px;
-  }
-
-  .invition-box .img-box img {
-    width: 35%;
+  .invitation-text-box button {
+    width: 20%;
   }
 }
 
 @media(max-width:400px) {
-  .invition-box {
-    height: 270px;
-  }
-
-  .invition-box>div {
-    height: 260px;
-  }
-
-
-
-  .invition-box .img-box img {
-    width: 35%;
+  .invitation-img-box img {
+    width: 100%;
   }
 }
 
@@ -474,18 +490,34 @@ select {
 }
 
 .invition-container {
+  display: none;
   margin: 0% auto 0% auto;
-  position: absolute;
-  top: 50%;
+  position: fixed;
+  overflow-y: auto;
+  top: 0%;
   left: 0;
   right: 0;
   /* bottom: 50%; */
-  width: 60%;
-  height: auto;
-  background: rgba(197, 193, 193, 0.041);
+  width: 100%;
+  height: 100%;
+  background: #c5c1c10a;
   z-index: 4;
-  border: 5px solid white;
 }
+
+
+
+/* .test {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1060;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+} */
 
 @media(max-width:1800px) {
   .invition-container {
@@ -504,8 +536,8 @@ select {
   border: none !important;
   background-color: unset;
   position: absolute;
-  right: 10px;
-  top: 5px;
+  right: 12px;
+  top: 8px;
 }
 
 @media(max-width:1800px) {
@@ -520,18 +552,28 @@ select {
   }
 }
 
+.invition-border {
+  border: 5px solid white;
+  padding: 5px;
+  margin: 5% auto auto auto;
+  width: 70%;
+  /* background: #c5c1c10a; */
+  z-index: 4;
+}
+
 .invition-container-box {
-  height: 100%;
-  width: 100%;
   display: flex;
   align-items: center;
   background-color: #DBDBDB;
+  height: 80%;
+  /* background: #c5c1c10a; */
+  z-index: 4;
 }
 
 
 .invition-container .img-box {
   width: 50%;
-  height: auto;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -539,9 +581,9 @@ select {
 }
 
 .invition-container .img-box img {
-  width: 70%;
+  width: 90%;
   height: auto;
-  margin: 15px auto 15px auto;
+  margin: 0px auto 0px auto;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
@@ -572,6 +614,7 @@ select {
 }
 
 .btn {
+  font-family: 'Savoye LET Plain';
   width: 160px;
   height: 40px;
   border: none;
@@ -598,15 +641,11 @@ select {
     margin-bottom: 0px;
   }
 
-  .invition-container {
-    width: 80%;
-    height: auto;
-  }
+
 
   .invition-container .img-box {
     margin-top: 10px;
-    width: 70%;
-    height: auto;
+    width: 80%;
   }
 
   .invition-container .text-box {
@@ -618,7 +657,7 @@ select {
 
 @media(max-width:991px) {
   .invition-container .img-box {
-    width: 55%;
+    width: 65%;
   }
 
   .invition-container .text-box h2 {
@@ -630,12 +669,11 @@ select {
   }
 
   .invition-container .img-box img {
-    width: 45%;
+    width: 50%;
   }
 
   .invition-container-box {
-    height: 100%;
-    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -644,6 +682,15 @@ select {
 }
 
 @media(max-width:768px) {
+  .invition-container .img-box {
+    width: 90%;
+    height: 65%;
+  }
+
+  .invition-container .img-box img {
+    margin-top: 20px;
+    width: 60%;
+  }
 
   .btn {
     width: 160px;
@@ -658,7 +705,7 @@ select {
   }
 
   .invition-container .img-box img {
-    width: 55%;
+    width: 70%;
   }
 
   .btn {
@@ -676,6 +723,21 @@ select {
 }
 
 @media(max-width:500px) {
+  .invition-container .text-box {
+    width: 90%;
+    height: 30%;
+    padding: 15px;
+  }
+
+  .invition-container .img-box img {
+    width: 85%;
+  }
+
+  .invition-container .img-box {
+    width: 90%;
+    height: 60%;
+  }
+
   .invition-container .text-box h2 {
     font-size: 30px;
     margin: 0px auto 0px 0px;
@@ -705,7 +767,7 @@ select {
 
   .invition-container .img-box {
     margin-top: 20px;
-    width: 90%;
+    width: 100%;
   }
 
   .invition-container .text-box h2 {
@@ -760,17 +822,20 @@ select {
   background-color: black;
 }
 
-.contact ul {
-  list-style: none;
+.contact {
+  text-align: center;
 }
 
-.contact ul li {
-  color: aliceblue;
+.contact img {
+  width: 25%;
+  height: auto;
 }
+
+
+
 
 .contact p {
   color: aliceblue;
-  margin: 10px auto 10px 30px;
   font-size: 30px;
   font-weight: 600;
   font-family: 'mySecondFont';
@@ -832,6 +897,10 @@ body {
   .map {
     bottom: 20px;
   }
+
+  .contact img {
+    width: 35%;
+  }
 }
 
 @media (max-width:1024px) {
@@ -853,6 +922,10 @@ body {
   .map a {
     font-size: 18px;
   }
+
+  .contact img {
+    width: 45%;
+  }
 }
 
 @media (max-width:991px) {
@@ -873,6 +946,7 @@ body {
     text-align: center;
     bottom: 60px;
   }
+
 }
 
 @media (max-width:768px) {
@@ -889,6 +963,10 @@ body {
     bottom: 30px;
     box-shadow: 0 0 8px 8px rgb(196, 191, 191);
   }
+
+  .contact img {
+    width: 55%;
+  }
 }
 
 @media (max-width:650px) {
@@ -903,6 +981,10 @@ body {
 
   .map {
     bottom: 20px;
+  }
+
+  .contact img {
+    width: 65%;
   }
 }
 
@@ -919,6 +1001,10 @@ body {
   .front {
     margin: 70px auto 70px auto;
     width: 85%;
+  }
+
+  .contact img {
+    width: 75%;
   }
 }
 

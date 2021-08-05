@@ -4,12 +4,12 @@ const Invitations = (props) =>{
   const {image, name,} = props.data
   return(
       <>
-        <div   className="img-box"  >
+        <div   className="invitation-img-box"  >
           <img style={props.imgOpacity} src={image} alt="img" />
         </div>
-        <div className="text-box">
+        <div className="invitation-text-box">
           <p>{name}</p>
-          <button style={props.imgOpacity} >Ətraflı</button>
+          <button style={props.imgOpacity} className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Ətraflı</button>
         </div>
       </>
   )

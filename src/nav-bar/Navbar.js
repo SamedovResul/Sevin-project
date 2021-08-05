@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import {useSpring, animated} from 'react-spring'
 import bgImgWhite from '../image/sevinwhite.png'
 import bgImgBlack  from '../image/sevinblack.png'
-
+import anasehife from '../image/Anasehife.png'
 const Navbar = () =>{
   const [style, setStyle] = useState({color: 'white'});
   const [navstyle, setNavstyle] = useState(false);
@@ -79,20 +79,20 @@ const Navbar = () =>{
             
               <Link  to='/'>
                 <li style={style}  >
-                  Home
+                  Ana səhifə
                 </li>
               </Link>
             
             
               <Link style={border} to='/about'>
                 <li style={style} >
-                  About
+                  Dəvətnamələr
                 </li>
               </Link>
 
               <Link style={border} to='/'>
                 <li style={style} >
-                  Invitations
+                  Əlaqə
                 </li>
               </Link>
             
