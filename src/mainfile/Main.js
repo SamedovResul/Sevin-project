@@ -4,20 +4,20 @@ import InvitationPAges from '../invitionfile/Invition-pages'
 import InvitationPage from '../invitionfile/Invition-page'
 import Footer from '../footerfile/Footer'
 import S from '../image/sevinwhiteS.png'
-import Scroll from 'react-scroll-to-element';
 
-const Main = () =>{
+const Main = (props) =>{
   const [box, setBox] = useState('close') 
   const [id, setId] = useState('')
   const [body, setBody] = useState({background: 'rgba(197, 193, 193, 0.)'})
   const [display, setDisplsay] = useState('')
-  const [percentage, setPercentage] = useState()
   const [imgOpacity, setImageOpacity] = useState({opacity: ''})
   const [selected, SetSelected] = useState()
+  const [zIndex, setZIndex] = useState({zIndex: '1'})
 
   const handlerChange = function(e){
-    
+    e.stopPropagation();
 		if(box !== 'close'){
+      document.body.style.overflow = 'auto'
       setId('')
 			setBox('close')
       setDisplsay('none')
@@ -29,48 +29,45 @@ const Main = () =>{
   
   const divref =useRef()
   let scroll = window.pageYOffset;
-  // window.scrollTo(0,scroll)
-
-  //  const scrollTo = function() {
-  //   scroll.scrollTo(scroll);
-  // },
 
   useEffect(() => {
   document.getElementsByClassName("sticky")[0].style.display = "block";
+  
   }, []);
+  
 
   useEffect(() => {
+    if(true === props.globalValue){
+      setZIndex({zIndex: '-1'})
+    }else{
+      setZIndex({zIndex: '1'})
+    }
+
 
     if(id && box === 'close'){
-      // document.querySelector(".invition-container").scrollIntoView({behavior: "smooth", block: "end", inline: "end"});
-      // divref.current.scrollTo(0,scroll)
-      setPercentage(scroll / 10 * 1.4)
       document.getElementsByClassName("sticky")[0].style.display = "none";
+      document.body.style.overflow = 'hidden'
       setDisplsay('block')
-      // console.log(percentage)
-      // setTop({top: percentage + 'px' })
-      // console.log(true)
       SetSelected(Invition.find(element => element.id ===  id))
       setId(0)
       setBox('open')
       setBody({background: 'rgba(0, 0, 0, 0.568)'})
       setImageOpacity({opacity: '0.2'})
     }
-  }, [id, box, scroll,percentage])
+  }, [id, box, scroll, props.globalValue])
 
 
   
 
   const animationbox = {
     display: `${display}`,
-    // top : `${percentage}%`
   }
 
-
+  
 
 
   return(
-    <article style={body}>
+    <article style={body} onClick={props.drowerCloseClick}>
       <div className="header-container ">
         <div className='Sevin'>
           <img src={S} alt="" />
@@ -96,6 +93,7 @@ const Main = () =>{
             key={subject.id}   
             onClick={() => setId(subject.id)} 
             className="col-md-4 col-sm-6  invition-box"
+            style={zIndex}
             >
               <div className="child-box">
                 <InvitationPAges  
@@ -111,13 +109,11 @@ const Main = () =>{
           </div>
         </div>
       </div>
-      <div  style={animationbox} ref={divref} className="invition-container">
+      <div onClick={handlerChange}  style={animationbox} ref={divref} className="invition-container">
             { selected ? ( 
-              <InvitationPage data={selected}   />
+              <InvitationPage data={selected} handlerChange={handlerChange}  />
             ) : ( <p>there is error</p> )}
-        <button onClick={handlerChange} type="button" className="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        
       </div>
       <Footer />
     </article>

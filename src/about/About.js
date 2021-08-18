@@ -2,9 +2,9 @@ import React from 'react'
 import bgphoto from '../image/bgimage.png'
 import Footer from '../footerfile/Footer'
 import S from '../image/sevinwhiteS.png'
-export default function About() {
+export default function About(props) {
   return (
-    <article>
+    <article onClick={props.drowerCloseClick} >
       <div className="header-container">
         <img src={bgphoto} alt="" />
         <div className='Sevin'>

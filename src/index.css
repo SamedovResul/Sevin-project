@@ -16,10 +16,11 @@ html {
   src: url('./fontfile/Savoye\ LET\ Plain1.0.woff') format('woff');
 }
 
-/* @font-face {
-
-  font-family: 'Segoe UI',
-} */
+@font-face {
+  font-family: petit;
+  src: url(./fontfile/petitformalscript-regular-webfont.woff) format('woff2'),
+    url(./fontfile/petitformalscript-regular-webfont.woff2) format('woff')
+}
 
 
 .nav-container {
@@ -45,12 +46,11 @@ html {
 }
 
 .nav-box {
-  width: 400px;
+  width: auto;
   height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 10px;
 }
 
 
@@ -66,9 +66,8 @@ html {
   margin: auto 15px auto 15px;
   font-weight: inherit;
   color: white;
-  font-family: 'Sinhala MN';
-
   font-size: 25px;
+  font-family: 'Charmonman', cursive;
 }
 
 .nav-box li:hover {
@@ -124,7 +123,7 @@ html {
 /* side nav */
 
 .side-container {
-  width: 40%;
+  width: 55%;
   height: 100%;
   position: fixed;
   top: 0px;
@@ -148,7 +147,7 @@ html {
   margin: auto 15px auto 15px;
   font-weight: inherit;
   color: white !important;
-  font-family: 'mySecondFont';
+  font-family: 'Charmonman', cursive;
   font-size: 25px;
 }
 
@@ -258,14 +257,14 @@ html {
 }
 
 .devetname h1 {
-  font-family: 'Sinhala MN';
+  font-family: 'Charmonman', cursive;
   font-weight: 600;
 }
 
 /* invition-box  */
 
 .invition-box {
-  height: 400px;
+  height: auto;
   margin-top: 20px;
   cursor: pointer;
   display: flex;
@@ -286,21 +285,21 @@ html {
     box-shadow: none !important;
   }
 
-  .invition-box:hover .img-box img {
+  .invition-box:hover .invitation-img-box img {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   }
 
-  .invition-box:hover .img-box img {
+  .invition-box:hover .invitation-img-box img {
     width: 100%;
     height: auto;
     border: 1px solid #d1c6d8;
   }
 
-  .invition-box:hover .text-box p {
+  .invition-box:hover .invitation-text-box p {
     display: none;
   }
 
-  .invition-box:hover .text-box button {
+  .invition-box:hover .invitation-text-box button {
     background-color: #FFFFFF;
     color: black;
     border: 1px solid #d1c6d8;
@@ -339,39 +338,43 @@ html {
 
 
 
-
+.invitation-text-box p:nth-child(2) {
+  font-size: 12px;
+}
 
 
 .invitation-text-box button {
-  width: 30%;
+  width: 35%;
   background-color: black;
   color: white;
   border: none;
+  border-radius: 20px;
+  margin-top: 20px;
+  /* box-shadow: 0 0 20px #979999, 0 0 50px #979999, 0 0 90px #979999; */
 }
 
 .invitation-text-box p {
-  font-family: 'mySecondFont';
+  font-family: 'Dancing Script', cursive;
   font-size: 30px;
   font-weight: 800;
   margin-block-start: 0em;
   margin-block-end: 0em;
 }
 
-@media(max-width:1800px) {
-  .invitation-text-box {
-    /* height: 550px; */
-  }
-
+@media(max-width:2300px) {
   .invition-box>div {
-    height: 500px;
+    height: 450px;
   }
+}
 
+@media(max-width:1800px) {
+  .invition-box>div {
+    height: 430px;
+  }
 }
 
 @media(max-width:1400px) {
-  .invition-box {
-    height: 500px;
-  }
+
 
   .invition-box>div {
     height: 450px;
@@ -387,26 +390,25 @@ html {
 
 @media(max-width:991px) {
   .invitation-text-box button {
-    width: 40%;
+    width: 45%;
   }
 
-  .invition-box {
-    height: 450px;
-  }
+
 
   .invition-box>div {
-    height: 380px;
+    height: 320px;
+  }
+
+  .invitation-text-box p {
+    font-size: 25px;
   }
 }
 
 
 @media(max-width:768px) {
-  .invition-box {
-    height: 450px;
-  }
 
   .invition-box>div {
-    height: 400px;
+    height: 370px;
   }
 
   .invitation-img-box img {
@@ -414,14 +416,15 @@ html {
   }
 
   .invitation-text-box button {
-    width: 30%;
+    width: 40%;
+  }
+
+  .invitation-text-box p {
+    font-size: 30px;
   }
 }
 
 @media(max-width:576px) {
-  .invition-box {
-    height: 500px;
-  }
 
   .invition-box>div {
     height: 500px;
@@ -432,7 +435,7 @@ html {
   }
 
   .invitation-text-box button {
-    width: 20%;
+    width: 25%;
   }
 }
 
@@ -452,14 +455,22 @@ html {
     width: 95%;
   }
 
-  .invitation-text-box button {
-    width: 20%;
-  }
+
 }
 
 @media(max-width:400px) {
+  .invition-box>div {
+    height: 500px;
+  }
+
   .invitation-img-box img {
     width: 100%;
+  }
+}
+
+@media(max-width:360px) {
+  .invition-box>div {
+    height: 460px;
   }
 }
 
@@ -536,8 +547,8 @@ select {
   border: none !important;
   background-color: unset;
   position: absolute;
-  right: 12px;
-  top: 8px;
+  right: 10px;
+  top: 3px;
 }
 
 @media(max-width:1800px) {
@@ -548,7 +559,21 @@ select {
 
 @media(max-width:1400px) {
   .close span {
-    font-size: 18px;
+    font-size: 20px;
+  }
+}
+
+@media(max-width:700px) {
+  .close {
+    right: 5px;
+    top: 0px;
+  }
+}
+
+@media(max-width:500px) {
+  .close {
+    right: 3px;
+    top: 0px;
   }
 }
 
@@ -559,6 +584,7 @@ select {
   width: 70%;
   /* background: #c5c1c10a; */
   z-index: 4;
+  position: relative;
 }
 
 .invition-container-box {
@@ -583,7 +609,7 @@ select {
 .invition-container .img-box img {
   width: 90%;
   height: auto;
-  margin: 0px auto 0px auto;
+  margin: 20px auto 0px auto;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
@@ -599,23 +625,40 @@ select {
 }
 
 .invition-container .text-box h2 {
-  font-family: 'mySecondFont';
+  font-family: 'Dancing Script', cursive;
   margin: 0px auto 20px 0px;
+  font-weight: bold;
 }
 
 .invition-container .text-box p {
-  font-family: 'mySecondFont';
-  font-size: 25px;
+  font-size: 20px;
   margin-bottom: 20px;
 }
 
-.invition-container-box .text-box p:nth-child(2) {
+.invition-container-box .text-box div:nth-child(1) {
+  width: 100%;
+  height: auto;
   border-bottom: 1px solid black;
 }
 
+.invition-container-box .text-box div:nth-child(1) p:nth-of-type(2) {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0px 10px 0px
+}
+
+.invition-container-box .text-box div:nth-child(2) {
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+
+
+
+
 .btn {
-  font-family: 'Savoye LET Plain';
-  width: 160px;
+  font-family: 'Dancing Script', cursive;
+  width: 190px;
   height: 40px;
   border: none;
   border-radius: 5px;
@@ -624,14 +667,95 @@ select {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   color: black;
   margin: 15px auto 15px auto;
+  position: relative;
+  overflow: hidden;
 }
+
+.btn span {
+  position: absolute;
+}
+
+.btn span:nth-child(1) {
+  top: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #201919);
+  animation: spanLightOne 4s infinite;
+}
+
+@keyframes spanLightOne {
+  from {
+    left: -100%
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+.btn span:nth-child(2) {
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #201919);
+  animation: spanLightTwo 4s infinite;
+}
+
+@keyframes spanLightTwo {
+  from {
+    top: -100%;
+  }
+
+  to {
+    top: 100%;
+  }
+}
+
+.btn span:nth-child(3) {
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #201919);
+  animation: spanLightThree 4s infinite;
+}
+
+@keyframes spanLightThree {
+  from {
+    right: -100%;
+  }
+
+  to {
+    right: 100%;
+  }
+}
+
+.btn span:nth-child(4) {
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #201919);
+  animation: spanLightFour 4s infinite;
+}
+
+@keyframes spanLightFour {
+  from {
+    bottom: -100%;
+  }
+
+  to {
+    bottom: 100%;
+  }
+}
+
+
+
+
 
 /* invition-container responsive */
 
 @media(max-width:1199px) {
 
   .invition-container .text-box h2 {
-    font-family: 'mySecondFont';
     margin: 0px auto 20px 0px;
     font-size: 40px;
   }
@@ -661,16 +785,16 @@ select {
   }
 
   .invition-container .text-box h2 {
+
     margin: 0px auto 5px 0px;
   }
 
   .invition-container .text-box p {
-    font-size: 22px;
+    margin-top: 6px;
+    font-size: 18px;
   }
 
-  .invition-container .img-box img {
-    width: 50%;
-  }
+
 
   .invition-container-box {
     height: auto;
@@ -689,12 +813,14 @@ select {
 
   .invition-container .img-box img {
     margin-top: 20px;
-    width: 60%;
   }
 
   .btn {
-    width: 160px;
     height: 50px;
+  }
+
+  .invition-border {
+    width: 90%;
   }
 }
 
@@ -704,9 +830,6 @@ select {
     font-size: 18px;
   }
 
-  .invition-container .img-box img {
-    width: 70%;
-  }
 
   .btn {
     width: 140px;
@@ -779,9 +902,7 @@ select {
     margin-bottom: 5px;
   }
 
-  .invition-container .text-box {
-    text-align: center;
-  }
+
 
   label input {
     margin: 0px 5px 0px 0px;
@@ -794,7 +915,7 @@ select {
 /* About */
 
 .about-section {
-  height: 200px;
+  height: auto;
   width: 100%;
   text-align: center;
 }
@@ -810,7 +931,7 @@ select {
 
 @media(max-width:768px) {
   .about-section {
-    height: 350px;
+    height: auto;
   }
 }
 
@@ -823,22 +944,42 @@ select {
 }
 
 .contact {
-  text-align: center;
+  text-align: left;
 }
 
-.contact img {
-  width: 25%;
+.contact span img {
+  width: 2%;
   height: auto;
 }
 
+@media(max-width:1199px) {
+  .contact span img {
+    width: 4%;
+  }
+}
 
+@media(max-width:567px) {
+  .contact span img {
+    width: 6%;
+  }
+}
+
+
+.contact p:nth-of-type(1) {
+  border-bottom: 1px solid white;
+  width: 10%;
+  margin-bottom: 20px;
+}
 
 
 .contact p {
   color: aliceblue;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 600;
   font-family: 'mySecondFont';
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin: 5px 0px 5px 0px;
 }
 
 /* Invitation  */
@@ -851,10 +992,11 @@ body {
 
 .invitation-page {
   width: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   position: relative;
 }
 
@@ -879,19 +1021,8 @@ body {
 }
 
 
-.map {
-  position: absolute;
-  bottom: 120px;
-  padding: 5px;
-  background-color: white;
-  box-shadow: 0 0 10px 10px #B4ABA8;
-}
 
-.map a {
-  color: #a8a8a1;
-  text-decoration: none !important;
-  font-size: 18px;
-}
+
 
 @media(max-width:1199px) {
   .map {
@@ -913,15 +1044,8 @@ body {
     width: 80%;
   }
 
-  .map {
-    width: 150px;
-    bottom: 80px;
-    text-align: center;
-  }
 
-  .map a {
-    font-size: 18px;
-  }
+
 
   .contact img {
     width: 45%;
@@ -940,12 +1064,7 @@ body {
   }
 
 
-  .map {
-    width: 150px;
-    bottom: 80px;
-    text-align: center;
-    bottom: 60px;
-  }
+
 
 }
 
@@ -959,10 +1078,7 @@ body {
     width: 70%;
   }
 
-  .map {
-    bottom: 30px;
-    box-shadow: 0 0 8px 8px rgb(196, 191, 191);
-  }
+
 
   .contact img {
     width: 55%;
@@ -979,9 +1095,6 @@ body {
     width: 75%;
   }
 
-  .map {
-    bottom: 20px;
-  }
 
   .contact img {
     width: 65%;
@@ -1043,5 +1156,135 @@ body {
 
   .front {
     margin: 115px auto 115px auto;
+  }
+}
+
+/* agqara invitation */
+
+.map {
+  position: absolute;
+  position: relative;
+  width: 150px;
+  bottom: 130px;
+  padding: 5px;
+  animation: myLigt 4s infinite;
+  animation-timing-function: linear;
+  text-align: center;
+  overflow: hidden;
+  color: white;
+  font-size: 18px;
+}
+
+/* @keyframes myLigt {
+  from {
+    box-shadow: 0 0 0px #ffffff, 0 0 0px #ffffff, 0 0 0px #ffffff;
+  }
+
+  to {
+    box-shadow: 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 10px #ffffff;
+  }
+} */
+
+.map span {
+  position: absolute;
+  display: block;
+}
+
+.map span:nth-child(1) {
+  top: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffffff);
+  animation: spanLightOne 4s infinite;
+}
+
+@keyframes spanLightOne {
+  from {
+    left: -100%
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+.map span:nth-child(2) {
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #ffffff);
+  animation: spanLightTwo 4s infinite;
+}
+
+@keyframes spanLightTwo {
+  from {
+    top: -100%;
+  }
+
+  to {
+    top: 100%;
+  }
+}
+
+.map span:nth-child(3) {
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #ffffff);
+  animation: spanLightThree 4s infinite;
+}
+
+@keyframes spanLightThree {
+  from {
+    right: -100%;
+  }
+
+  to {
+    right: 100%;
+  }
+}
+
+.map span:nth-child(4) {
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #ffffff);
+  animation: spanLightFour 4s infinite;
+}
+
+@keyframes spanLightFour {
+  from {
+    bottom: -100%;
+  }
+
+  to {
+    bottom: 100%;
+  }
+}
+
+@media(max-width:1199px) {
+  .map {
+    bottom: 20px;
+  }
+}
+
+@media (max-width:1024px) {
+  .content {
+    height: 140vh;
+  }
+
+  .front {
+    margin: 100px auto 100px auto;
+    width: 80%;
+  }
+
+  .map {
+    width: 150px;
+    bottom: 80px;
+    text-align: center;
+  }
+
+  .map a {
+    font-size: 12px;
   }
 }

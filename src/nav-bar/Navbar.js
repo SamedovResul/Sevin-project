@@ -3,32 +3,21 @@ import { Link } from 'react-router-dom'
 import {useSpring, animated} from 'react-spring'
 import bgImgWhite from '../image/sevinwhite.png'
 import bgImgBlack  from '../image/sevinblack.png'
-import anasehife from '../image/Anasehife.png'
-const Navbar = () =>{
+const Navbar = (props) =>{
   const [style, setStyle] = useState({color: 'white'});
   const [navstyle, setNavstyle] = useState(false);
   const [border, setBorder] = useState({borderLeft: "1px solid white", })
-  const [open, setOpen] = useState(false)
   const [bgimage, setBgimage] = useState(bgImgBlack)
 
-  
 
-  const handlerBurger = function(){
-    if(!open){
-      setOpen(true)
-    }else{
-      setOpen(false)
-    }
-    console.log(open)
-  }
 
   const sideBar = useSpring({
-			to: [{right: open ? '0%' : '-50%'}],
-      from: {right:  '-50%'},
-			config: {
-				duration: 500
-			}
-		})
+    to: [{right: props.globalValue ? '0%' : '-55%'}],
+    from: {right:  '-55%'},
+    config: {
+      duration: 500
+    }
+	})
 
   useEffect(() => {
     document.getElementsByClassName("sticky")[0].style.display = "block";
@@ -70,7 +59,7 @@ const Navbar = () =>{
     
   return(
     <article className='sticky'>
-      <animated.div style={navAnimation}  className="nav-container">
+      <animated.div style={navAnimation}  className="nav-container" >
         <div className="logo">
           <img src={bgimage} alt="png" />
         </div>
@@ -84,46 +73,46 @@ const Navbar = () =>{
               </Link>
             
             
-              <Link style={border} to='/about'>
+              <Link style={border} to='/'>
                 <li style={style} >
                   Dəvətnamələr
                 </li>
               </Link>
 
-              <Link style={border} to='/'>
+              <Link style={border} to='/about'>
                 <li style={style} >
-                  Əlaqə
+                 Haqqımızda
                 </li>
               </Link>
             
           </ul>
-            <button className="open-burger" onClick={handlerBurger} >
+            <button className="open-burger" onClick={props.drowerOpenClick} >
               <p>&#9776;</p>
             </button>
         </div>
       </ animated.div>
 
       <animated.div style={sideBar} className="side-container" >
-          <button className="close-burger" onClick={handlerBurger} >
+          <button className="close-burger" onClick={props.drowerCloseClick} >
             <p>&#9776;</p>
           </button>
           <ul>
               <Link  to='/'>
                 <li style={style}  >
-                  Home
+                  Ana səhifə
                 </li>
               </Link>
             
             
               <Link style={border} to='/about'>
                 <li style={style} >
-                  About
+                  Haqqımızda
                 </li>
               </Link>
 
               <Link style={border} to='/'>
                 <li style={style} >
-                  Invitions
+                 Dəvətnamələr
                 </li>
               </Link>
             
